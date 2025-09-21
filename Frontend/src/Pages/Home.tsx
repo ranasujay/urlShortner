@@ -1,11 +1,11 @@
-import { Button } from "@/Components/ui/button"
-import Navbar from "../Components/Home/Navbar"
+import { Button } from "@/Components/ui/button";
+import Navbar from "../Components/Home/Navbar";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { RootState } from "@/main";
 import { useLocation, useNavigate } from "react-router-dom";
 import UrlModal from "@/Components/Home/UrlModal";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FiZap, FiBarChart, FiShield, FiGlobe, FiArrowRight, FiCheck } from "react-icons/fi";
 
 

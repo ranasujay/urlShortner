@@ -1,12 +1,12 @@
-import { RootState } from "@/main";
-import apiConnector from "@/service/apiConnector";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import Navbar from "@/Components/Home/Navbar";
+import apiConnector from "@/service/apiConnector";
+import { RootState } from "@/main";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import Navbar from "@/Components/Home/Navbar";
-import { FiExternalLink, FiBarChart, FiCalendar, FiTrendingUp, FiLink, FiPlus } from "react-icons/fi";
 import { Button } from "@/Components/ui/button";
+import { FiExternalLink, FiBarChart, FiCalendar, FiLink, FiPlus } from "react-icons/fi";
 
 const Dashboard = () => {
   const [populateduserData, setpopulateduserData] = useState<any>(null);
