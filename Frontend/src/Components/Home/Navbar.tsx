@@ -23,33 +23,52 @@ const Navbar = () => {
   }
 
   return (
-    <div className="flex w-11/12 mx-auto justify-between items-center py-2 shadow-md">
-      <Link to={"/"}>
-        <img src="/logo.png" className="w-16"></img>
+    <div className="flex w-11/12 max-w-7xl mx-auto justify-between items-center py-4 backdrop-blur-sm bg-slate-900/50 rounded-xl mt-4 px-4 md:px-6 border border-slate-700/50">
+      <Link to={"/"} className="flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300">
+        <img src="/logo.png" className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" alt="Logo"></img>
+        <span className="text-white font-bold text-lg md:text-xl hidden sm:block">URLShortener</span>
       </Link>
-      <div className="flex gap-3 items-center">
+      <div className="flex gap-2 md:gap-3 items-center">
         {userData ? (
-          <div className="flex items-center gap-2 text-white font-semibold ">
-            <h1>👋 {userData?.userName.split(" ")[0]}</h1>
+          <div className="flex items-center gap-2 md:gap-4 text-white font-semibold">
+            <span className="hidden lg:block text-slate-300 text-sm md:text-base">
+              Welcome, <span className="text-green-400">{userData?.userName.split(" ")[0]}</span>! 👋
+            </span>
             <Popover>
-              <PopoverTrigger>
-                <Avatar>
+              <PopoverTrigger className="hover:scale-105 transition-transform duration-300">
+                <Avatar className="w-8 h-8 md:w-10 md:h-10 border-2 border-slate-600 hover:border-green-400 transition-colors duration-300">
                   <AvatarImage src={userData?.image} />
-                  <AvatarFallback>US</AvatarFallback>
+                  <AvatarFallback className="bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold text-sm md:text-base">
+                    {userData?.userName.charAt(0).toUpperCase()}
+                  </AvatarFallback>
                 </Avatar>
               </PopoverTrigger>
-              <PopoverContent className="px-0 w-fit mr-2 border border-slate-600 bg-slate-900 text-white">
-                <p className="text-center px-4 font-semibold">{userData.userName}</p>
-                <hr className="mt-2 text-slate-600" />
-                <Link to={'/dashboard'}><div className="flex gap-3 items-center px-4 mt-2 hover:bg-slate-700 py-2 cursor-pointer"><FaLink/><span>My Links</span></div></Link>
-                <Link to={'/'}><div className="flex gap-3 items-center px-4  hover:bg-slate-700 py-2 cursor-pointer" onClick={LogoutHandler}><FiLogOut/><span>Logout</span></div></Link>
+              <PopoverContent className="px-0 w-fit mr-2 border border-slate-600 bg-slate-900/95 backdrop-blur-sm text-white rounded-xl shadow-xl">
+                <div className="px-4 py-3 border-b border-slate-700">
+                  <p className="font-semibold text-base md:text-lg">{userData.userName}</p>
+                  <p className="text-slate-400 text-xs md:text-sm">{userData.email}</p>
+                </div>
+                <Link to={'/dashboard'}>
+                  <div className="flex gap-3 items-center px-4 py-3 hover:bg-slate-800/50 cursor-pointer transition-colors duration-300 group">
+                    <FaLink className="text-green-400 group-hover:scale-110 transition-transform duration-300 w-4 h-4"/>
+                    <span className="group-hover:text-green-400 transition-colors duration-300 text-sm md:text-base">My Links</span>
+                  </div>
+                </Link>
+                <Link to={'/'}>
+                  <div className="flex gap-3 items-center px-4 py-3 hover:bg-slate-800/50 cursor-pointer transition-colors duration-300 group" onClick={LogoutHandler}>
+                    <FiLogOut className="text-red-400 group-hover:scale-110 transition-transform duration-300 w-4 h-4"/>
+                    <span className="group-hover:text-red-400 transition-colors duration-300 text-sm md:text-base">Logout</span>
+                  </div>
+                </Link>
               </PopoverContent>
             </Popover>
           </div>
         ) : (
-        <Link to={'/signup'}><Button className="bg-white text-black font-semibold hover:bg-slate-100 hover:scale-95">
-        Login
-      </Button></Link>
+        <Link to={'/signup'}>
+          <Button className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-green-500/25 px-4 py-2 md:px-6 md:py-2 text-sm md:text-base">
+            Get Started
+          </Button>
+        </Link>
         )}
       </div>
     </div>

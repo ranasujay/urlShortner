@@ -4,6 +4,8 @@ import apiConnector from "@/service/apiConnector";
 import { useState } from "react"
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
+import { FiMail, FiLock, FiLoader } from "react-icons/fi";
 
 interface LoginForm {
     email:string;
@@ -70,25 +72,71 @@ const LoginForm = () => {
 
      
   return (
-    <div className="w-[30%] border border-slate-600 rounded-lg h-[50%] flex flex-col gap-4 items-start p-5 px-7 justify-center">
-           <div className="flex flex-col gap-2">
-           <h1 className="font-bold text-3xl">Login</h1>
-           <h3 className="text-slate-400">into your account if you have already one</h3>
-           </div>
+    <motion.div 
+      className="w-full max-w-md mx-auto bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 md:p-8 shadow-2xl"
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+    >
+      <div className="flex flex-col gap-3 mb-6">
+        <h1 className="font-bold text-2xl md:text-3xl text-white">Sign In</h1>
+        <p className="text-slate-400 text-sm md:text-base">
+          Welcome back! Please sign in to your account
+        </p>
+      </div>
 
-           <div className="flex flex-col gap-2 mt-6 w-full">
-            <input type="email" name="email" className="bg-transparent border border-slate-600 focus-within:outline-none px-3 rounded-md py-2" placeholder="Enter Email" onChange={changehandler} value={formdata.email} />
-            <input type="password" name="password" id="password" className="bg-transparent border border-slate-600 focus-within:outline-none px-3 rounded-md py-2" placeholder="Enter Password" onChange={changehandler} value={formdata.password}/>
-           </div>
+      <div className="flex flex-col gap-4 w-full">
+        <div className="relative">
+          <FiMail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+          <input 
+            type="email" 
+            name="email" 
+            className="bg-slate-700/30 border border-slate-600/50 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 pl-11 pr-4 py-3 rounded-xl w-full text-white placeholder-slate-400 transition-all duration-300" 
+            placeholder="Enter your email" 
+            onChange={changehandler} 
+            value={formdata.email} 
+          />
+        </div>
+        
+        <div className="relative">
+          <FiLock className="absolute left-3 top-1/2 transform -translate-y-1/2 text-slate-400 w-5 h-5" />
+          <input 
+            type="password" 
+            name="password" 
+            className="bg-slate-700/30 border border-slate-600/50 focus:outline-none focus:ring-2 focus:ring-green-500/50 focus:border-green-500/50 pl-11 pr-4 py-3 rounded-xl w-full text-white placeholder-slate-400 transition-all duration-300" 
+            placeholder="Enter your password" 
+            onChange={changehandler} 
+            value={formdata.password}
+          />
+        </div>
+      </div>
 
-           <Button className="mt-6 text-black bg-white hover:bg-slate-100 hover:scale-95 transition-all duration-200" onClick={submithandler}>{loading ? <div className="custom-loader"></div> : 'Login'}</Button>
+      <Button 
+        className="w-full mt-6 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white font-semibold py-3 rounded-xl transition-all duration-300 hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100" 
+        onClick={submithandler}
+        disabled={loading}
+      >
+        {loading ? (
+          <div className="flex items-center gap-2">
+            <FiLoader className="w-4 h-4 animate-spin" />
+            Signing in...
+          </div>
+        ) : (
+          'Sign In'
+        )}
+      </Button>
 
-   
-            {
-                message && <span className="text-red-600 self-center">{message}</span>
-            }
-         
-    </div>
+      {message && (
+        <motion.div 
+          className="mt-4 p-3 bg-red-500/10 border border-red-500/20 rounded-lg"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.3 }}
+        >
+          <span className="text-red-400 text-sm font-medium">{message}</span>
+        </motion.div>
+      )}
+    </motion.div>
   )
 }
 

@@ -66,23 +66,39 @@ export function StatsCharts({ clickCount, locations, devices }: StatsChartsProps
   }, {} as Record<string, { label: string; color: string }>)
 
   return (
-    <Card className="w-full bg-[#1e293b] text-white">
-      <CardHeader>
-        <CardTitle className="text-2xl font-bold">URL Statistics</CardTitle>
-        <CardDescription className="text-gray-300">Detailed analytics for your shortened URL</CardDescription>
+    <Card className="w-full bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 text-white shadow-2xl">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-xl md:text-2xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+          URL Statistics
+        </CardTitle>
+        <CardDescription className="text-slate-400">
+          Detailed analytics for your shortened URL
+        </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="p-4 md:p-6">
         <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
-          <TabsList className="grid w-full grid-cols-3 bg-[#2d3a4f] rounded-lg p-1">
-            <TabsTrigger value="clicks" className="data-[state=active]:bg-[#3e4c63] data-[state=active]:text-white">Clicks</TabsTrigger>
-            <TabsTrigger value="devices" className="data-[state=active]:bg-[#3e4c63] data-[state=active]:text-white">Devices</TabsTrigger>
-            <TabsTrigger value="locations" className="data-[state=active]:bg-[#3e4c63] data-[state=active]:text-white">Locations</TabsTrigger>
+          <TabsList className="grid w-full grid-cols-3 bg-slate-700/30 rounded-xl p-1 text-xs md:text-sm">
+            <TabsTrigger value="clicks" className="data-[state=active]:bg-green-600 data-[state=active]:text-white rounded-lg transition-all duration-300">
+              <span className="hidden sm:inline">Click Trends</span>
+              <span className="sm:hidden">Clicks</span>
+            </TabsTrigger>
+            <TabsTrigger value="devices" className="data-[state=active]:bg-green-600 data-[state=active]:text-white rounded-lg transition-all duration-300">
+              Devices
+            </TabsTrigger>
+            <TabsTrigger value="locations" className="data-[state=active]:bg-green-600 data-[state=active]:text-white rounded-lg transition-all duration-300">
+              <span className="hidden sm:inline">Locations</span>
+              <span className="sm:hidden">Places</span>
+            </TabsTrigger>
           </TabsList>
-          <TabsContent value="clicks">
-            <div className="mt-4 space-y-4">
-              <div className="text-4xl font-bold text-center">{clickCount}</div>
-              <div className="text-center text-gray-300">Total Clicks</div>
-              <ChartContainer config={clicksConfig} className="h-[300px]">
+          <TabsContent value="clicks" className="mt-4 md:mt-6">
+            <div className="space-y-4">
+              <div className="text-center">
+                <div className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
+                  {clickCount}
+                </div>
+                <div className="text-slate-400 text-sm md:text-base font-medium mt-1">Total Clicks</div>
+              </div>
+              <ChartContainer config={clicksConfig} className="h-[250px] md:h-[300px]">
                 <ResponsiveContainer width="100%" height="100%">
                   <LineChart data={clickTrendData}>
                     <Line type="monotone" dataKey="clicks" stroke="var(--color-clicks)" strokeWidth={2} />
