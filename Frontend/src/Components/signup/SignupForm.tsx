@@ -73,7 +73,7 @@ const SignupForm = () => {
 
   return (
     <motion.div 
-      className="w-full max-w-md mx-auto bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 md:p-8 shadow-2xl"
+      className="w-full max-w-md mx-auto bg-slate-800/30 backdrop-blur-sm border border-slate-700/50 rounded-xl p-6 md:p-8 "
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}

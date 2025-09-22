@@ -24,7 +24,7 @@ const Signup = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen flex flex-col justify-center items-center gap-8 text-white px-4">
+    <div className="bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 min-h-screen flex flex-col justify-center items-center gap-4 text-white px-4">
       {/* Back Button */}
       <Link to="/" className="absolute top-6 left-6 flex items-center gap-2 text-slate-400 hover:text-white transition-colors duration-300">
         <FiArrowLeft className="w-5 h-5" />
@@ -80,7 +80,7 @@ const Signup = () => {
 
       {/* Form Container */}
       <motion.div
-        className="w-full max-w-md"
+        className="w-full max-w-md "
         key={isLogin ? 'login' : 'signup'}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -91,13 +91,13 @@ const Signup = () => {
       </motion.div>
 
       {/* Footer */}
-      <motion.div 
-        className="text-center text-slate-400 text-sm mt-8"
+        <motion.div 
+          className="text-center text-slate-400 text-sm "
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.4, duration: 0.6 }}
       >
-        <p>
+        <p className="text-center text-slate-400 text-sm mb-8">
           {isLogin ? "Don't have an account? " : "Already have an account? "}
           <button 
             onClick={() => setIsLogin(!isLogin)}
