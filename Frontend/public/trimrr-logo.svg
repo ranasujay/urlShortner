@@ -1,0 +1,23 @@
+<svg width="185" height="50" viewBox="0 0 185 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="trimrrModernGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#22c55e" /> <stop offset="100%" stop-color="#3b82f6" /> </linearGradient>
+  </defs>
+
+  <g transform="translate(5, 5)">
+    <circle cx="15" cy="11" r="9" stroke="url(#trimrrModernGradient)" stroke-width="3"/>
+    <circle cx="15" cy="29" r="9" stroke="url(#trimrrModernGradient)" stroke-width="3"/>
+    
+    <path d="M 23 14 L 40 20 L 75 10 Z" fill="#D1D5DB" /> <path d="M 23 26 L 40 20 L 75 30 Z" fill="#9CA3AF" /> <circle cx="40" cy="20" r="3" fill="#6B7280" /> </g>
+
+  <text 
+    x="88" 
+    y="35" 
+    font-family="Poppins, sans-serif" 
+    font-size="28" 
+    font-weight="600" 
+    fill="url(#trimrrModernGradient)"
+  >
+    Trimrr
+  </text>
+</svg>
