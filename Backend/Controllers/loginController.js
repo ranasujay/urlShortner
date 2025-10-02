@@ -7,7 +7,7 @@ exports. loginController = async (req,resp) => {
    const {email,password} = req.body;
    try{
     //find the user in db
-    const user =await User.findOne({email:email}).populate('links').exec();
+    const user =await User.findOne({email:email});
     if(!user){
         return resp.status(200).json({
             success:false,
@@ -26,8 +26,14 @@ exports. loginController = async (req,resp) => {
         })
     }
 
-   //creating jwt token
-   const token = jwt.sign(user.toObject(),process.env.JWT_SECRET,{expiresIn:'1d'})
+   //creating jwt token - only include safe fields
+   const userForToken = {
+       _id: user._id,
+       userName: user.userName,
+       email: user.email,
+       image: user.image
+   };
+   const token = jwt.sign(userForToken, process.env.JWT_SECRET, {expiresIn:'1d'})
 
    resp.cookie('token', token, {
     httpOnly: true,   // Prevents client-side JavaScript from accessing the cookie
@@ -37,7 +43,7 @@ exports. loginController = async (req,resp) => {
 
    resp.status(200).json({
     success:true,
-    data:user,
+    data:userForToken,
     token:token,
     message:'user logedin succesfully'
    })

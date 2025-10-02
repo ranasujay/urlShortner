@@ -36,7 +36,17 @@ try{
         //first create an unique id for the url
         const uniqueId = generateId();
 
+        //find the user first to get userId
+        const user = await User.findOne({email:userEmail});
+        if(!user){
+            return resp.status(404).json({
+                success:false,
+                message:'User not found'
+            })
+        }
+
         const urlObject = new UrlModel({
+            userId:user._id,
             name:name,
             originalLink:url,
             unqId:uniqueId,
@@ -44,14 +54,7 @@ try{
         })
 
         const newUrl = await urlObject.save();
-
-        //now we will store the url id to the user who crated it
-        const user = await User.findOne({email:userEmail});
-
-        user.links.push(newUrl._id);
-        
-        const updatedUser = await user.save();
-        console.log(updatedUser);
+        console.log('New URL saved with userId:', newUrl);
 
         return resp.status(200).json({
             success:true,

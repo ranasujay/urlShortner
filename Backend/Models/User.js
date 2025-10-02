@@ -12,11 +12,6 @@ const userSchema = new mongoose.Schema({
     },
     image:{
         type:String
-    },
-    links:{
-        type:[mongoose.Schema.Types.ObjectId],
-        ref:'URL',
-        default:[]
     }
 })
 
