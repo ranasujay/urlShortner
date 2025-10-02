@@ -41,7 +41,7 @@ exports.clickUrl = async (req, resp) => {
 
             const updatedUrl = await url.save();
 
-            resp.redirect(updatedUrl.originalLink);
+            resp.status(302).redirect(updatedUrl.originalLink);
 
         }
 

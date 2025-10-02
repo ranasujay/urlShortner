@@ -38,9 +38,9 @@ const Signup = () => {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
       >
-        <img src="/logo.png" className="w-16 h-16 rounded-xl shadow-lg" alt="Logo" />
+        <img src="/logo.svg" className="w-20 h-20 md:w-24 md:h-24 rounded-xl shadow-lg" alt="Trimrr Logo" />
         <h1 className="font-bold text-4xl md:text-5xl text-center font-poppins bg-gradient-to-r from-green-400 to-blue-500 bg-clip-text text-transparent">
-          Welcome to URLShortener
+          Welcome to Trimrr
         </h1>
         <p className="text-slate-300 text-lg text-center max-w-md">
           {isLogin ? "Welcome back! Sign in to manage your links." : "Join thousands of users who trust us with their links."}

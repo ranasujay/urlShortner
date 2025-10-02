@@ -25,8 +25,8 @@ const Navbar = () => {
   return (
     <div className="flex w-11/12 max-w-7xl mx-auto justify-between items-center py-4 backdrop-blur-sm bg-slate-900/50 rounded-xl mt-4 px-4 md:px-6 border border-slate-700/50">
       <Link to={"/"} className="flex items-center gap-2 md:gap-3 hover:scale-105 transition-transform duration-300">
-        <img src="/logo.png" className="w-10 h-10 md:w-12 md:h-12 rounded-lg shadow-lg" alt="Logo"></img>
-        <span className="text-white font-bold text-lg md:text-xl hidden sm:block">URLShortener</span>
+        <img src="/logo.svg" className="w-12 h-12 md:w-16 md:h-16 rounded-lg shadow-lg" alt="Trimrr Logo"></img>
+        <span className="text-white font-bold text-lg md:text-xl hidden sm:block">Trimrr</span>
       </Link>
       <div className="flex gap-2 md:gap-3 items-center">
         {userData ? (

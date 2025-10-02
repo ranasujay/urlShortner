@@ -81,7 +81,7 @@ const SignupForm = () => {
       <div className="flex flex-col gap-3 mb-6">
         <h1 className="font-bold text-2xl md:text-3xl text-white">Create Account</h1>
         <p className="text-slate-400 text-sm md:text-base">
-          Join URLShortener and start managing your links
+          Join Trimrr and start managing your links
         </p>
       </div>
 

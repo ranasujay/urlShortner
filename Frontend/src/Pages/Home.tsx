@@ -357,8 +357,8 @@ const Footer = () => {
           {/* Logo and Description */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-3 mb-4">
-              <img src="/logo.png" className="w-12 h-12" alt="Logo" />
-              <span className="text-2xl font-bold text-white">URLShortener</span>
+              <img src="/logo.svg" className="w-16 h-16 md:w-20 md:h-20" alt="Trimrr Logo" />
+              <span className="text-2xl font-bold text-white">Trimrr</span>
             </div>
             <p className="text-slate-400 mb-4 max-w-md">
               The most powerful URL shortener with advanced analytics, custom domains, and enterprise-grade reliability.
@@ -393,7 +393,7 @@ const Footer = () => {
 
         <div className="border-t border-slate-700/50 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-slate-400 text-sm">
-            © 2025 URLShortener. All rights reserved.
+            © 2025 Trimrr. All rights reserved.
           </p>
           <div className="flex items-center gap-4 mt-4 md:mt-0">
             <span className="text-slate-400 text-sm">Follow us:</span>

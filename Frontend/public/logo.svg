@@ -1,0 +1,72 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Main gradient for background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6366F1"/>
+      <stop offset="50%" style="stop-color:#8B5CF6"/>
+      <stop offset="100%" style="stop-color:#06B6D4"/>
+    </linearGradient>
+    
+    <!-- Gradient for the "T" -->
+    <linearGradient id="letterGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#F1F5F9"/>
+    </linearGradient>
+    
+    <!-- Gradient for accent elements -->
+    <linearGradient id="accentGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#10B981"/>
+      <stop offset="100%" style="stop-color:#22C55E"/>
+    </linearGradient>
+
+    <!-- Filter for glow effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background circle -->
+  <circle cx="32" cy="32" r="28" fill="url(#bgGradient)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  
+  <!-- Inner shadow circle -->
+  <circle cx="32" cy="32" r="25" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+  
+  <!-- Main "T" letter for Trimrr -->
+  <g filter="url(#glow)">
+    <!-- Top horizontal bar of T (made bigger) -->
+    <rect x="12" y="16" width="40" height="8" rx="4" fill="url(#letterGradient)"/>
+    
+    <!-- Vertical bar of T (made bigger) -->
+    <rect x="28" y="16" width="8" height="32" rx="4" fill="url(#letterGradient)"/>
+    
+    <!-- Cut/slash effect through the T (made more prominent) -->
+    <path d="M16 40 L48 28" stroke="url(#accentGradient)" stroke-width="4" stroke-linecap="round" opacity="0.9"/>
+    
+    <!-- Small cut fragments (made bigger) -->
+    <rect x="14" y="38" width="6" height="3" rx="1.5" fill="url(#accentGradient)" opacity="0.7" transform="rotate(15 17 39.5)"/>
+    <rect x="44" y="26" width="6" height="3" rx="1.5" fill="url(#accentGradient)" opacity="0.7" transform="rotate(15 47 27.5)"/>
+  </g>
+  
+  <!-- Subtle link elements -->
+  <g opacity="0.6">
+    <!-- Chain link elements suggesting URLs (made bigger) -->
+    <rect x="8" y="52" width="12" height="4" rx="2" fill="rgba(255,255,255,0.4)"/>
+    <rect x="44" y="8" width="10" height="4" rx="2" fill="rgba(255,255,255,0.4)"/>
+  </g>
+  
+  <!-- Speed/efficiency indicators (made bigger) -->
+  <g opacity="0.7">
+    <path d="M52 32 L58 32 M55 29 L58 32 L55 35" stroke="url(#accentGradient)" stroke-width="3" stroke-linecap="round"/>
+    <circle cx="49" cy="32" r="1.5" fill="url(#accentGradient)"/>
+  </g>
+  
+  <!-- Sparkle effects for modern touch (made bigger) -->
+  <g opacity="0.8">
+    <path d="M50 18 L52 15 L54 18 L52 21 Z" fill="rgba(255,255,255,0.8)"/>
+    <path d="M14 50 L16 47 L18 50 L16 53 Z" fill="rgba(255,255,255,0.6)"/>
+  </g>
+</svg>
