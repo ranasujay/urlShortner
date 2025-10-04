@@ -3,7 +3,7 @@
 A modern, full-stack URL shortener application built with React and Node.js that allows users to create shortened URLs, track analytics, and manage their links.
 
 ## System Design
-  
+  ![urlShortner Design](https://github.com/ranasujay/urlShortner/blob/main/UrlShortner_diagram.png)
  
 ## 🚀 Features
 
