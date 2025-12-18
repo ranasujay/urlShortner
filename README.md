@@ -113,8 +113,3 @@ The application will be running with:
 **Sujay Rana**
 - GitHub: [@ranasujay](https://github.com/ranasujay)
 
-## 🙏 Acknowledgments
-
-- Built with modern web technologies
-- Inspired by popular URL shortening services
-- Uses open-source libraries and frameworks
